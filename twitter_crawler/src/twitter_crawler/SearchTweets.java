@@ -171,12 +171,15 @@ public class SearchTweets {
                 for (Status tweet : tweets) {           	   
                 	tweet_number += 1;                	
                 	
-                	// preprocess text to remove paragraphs in the tweet text because without them it's easier to process data.
+                	// preprocess text to remove paragraphs in the tweet because without them it's easier to process data.
                 	String text = tweet.getText();
                 	String processedText = text.replace("\n", " ");
                 	processedText = processedText.replace("\r", " ");
-                	// remove tabs in tweet text because corpus will be saved tab-separated.
+                	// remove tabs in tweet because corpus will be saved tab-separated.
                 	processedText = processedText.replace("\t", " ");
+                	String user_name = tweet.getUser().getName().replace("\t", " ");
+                	String screen_name = tweet.getUser().getScreenName().replace("\t", " ");
+                	
                 	
                 	// if-else because place full name throws NullPointerException if there is no given place.
                 	if (tweet.getPlace() != null){
@@ -188,12 +191,12 @@ public class SearchTweets {
                 		//String place = place.replace(",", " in");
                 		
                 		// write output file.
-                		osw.write(tweet.getCreatedAt() + sep + tweet.getUser().getName() + sep + tweet.getUser().getScreenName() + sep + tweet.getId() + sep + processedText + sep + tweet.getGeoLocation() + sep + place + "\n");
+                		osw.write(tweet.getCreatedAt() + sep + user_name + sep + screen_name + sep + tweet.getId() + sep + processedText + sep + tweet.getGeoLocation() + sep + place + "\n");
                 	}
                 	// no given place information. 
                 	else {
                 		// write output file.
-                		osw.write(tweet.getCreatedAt() + sep + tweet.getUser().getName() + sep + tweet.getUser().getScreenName() + sep + tweet.getId() + sep + processedText + sep + tweet.getGeoLocation() + sep + tweet.getPlace() + "\n");
+                		osw.write(tweet.getCreatedAt() + sep + user_name + sep + screen_name + sep + tweet.getId() + sep + processedText + sep + tweet.getGeoLocation() + sep + tweet.getPlace() + "\n");
                     	
                 	}
                 	
