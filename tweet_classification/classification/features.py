@@ -4646,7 +4646,7 @@ def extractFeatures(class1, class2, mode, arff_path, tweetIDs, tweets, features=
     """Returns lists of the used features and its result."""
 
     if mode =='all' or mode == 'specific':
-        features, normalized_functions, cross_product = createFeatures(features, feat, regExp, new_stack, binary_combination, sentiment_feature, bigram)
+        features, normalized_functions, cross_product = createFeatures(features, feat, regExp, stack_binning, binary_combination, sentiment_feature, bigram)
     
     
     if mode == 'all' or mode == 'bow':

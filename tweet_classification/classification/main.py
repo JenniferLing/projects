@@ -25,11 +25,11 @@ import os
 import shutil
 # ----------------------------- functions ------------------------------------
 
-def createARFF(class1, class2, arff_path):
+def createARFF(class1, class2, arff_path, corpus_path=CORPUS_PATH+TRAIN_PATH):
     """
     Define features by their number (see features: feature_names) and create ARFF file.
     """
-    corpus = Corpus(class1, class2,corpusPath=CORPUS_PATH+TRAIN_PATH)
+    corpus = Corpus(class1, class2,corpusPath=corpus_path)
             
     allConfig = range(5)
     
@@ -144,9 +144,9 @@ def main(randomSeed=42):
   
     for class1, class2 in classes:
      
-        #createARFF(class1, class2, arff_path)
+        createARFF(class1, class2, arff_path,corpus_path=CORPUS_PATH+TEST_PATH)
         
-        runLearning(class1, class2, randomSeed, arff_path, "test")
+        #runLearning(class1, class2, randomSeed, arff_path, "test")
         #saveResults("./", class1, class2)
         #saveModel("./", "../models/", class1, class2)
         

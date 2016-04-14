@@ -125,9 +125,7 @@ def applyMachineLearning(class1, class2, randomSeed, arff_path, trainingSetFilen
 
     # Syntax # Subjectivity
     allWithoutSyntax = list(set(range(157)) - set(syntaxConfig) - set(subjConfig) - set(posConfig))
-    
-    allWithoutWeka = list(set(range(157)) - set(wekaConfig))
-    
+        
     allWithoutTop10 = list(set(allConfig) - set(top10Config))
     
 
@@ -142,14 +140,12 @@ def applyMachineLearning(class1, class2, randomSeed, arff_path, trainingSetFilen
     # New Syntax: Old Syntax + Subj:
 
     binaryWithoutSyntax = list(set(allBinaryConfig) - set(syntaxConfig) - set(subjConfig) - set(posConfig))
-    
-    binaryWithoutWeka = list(set(allBinaryConfig) - set(wekaConfig))
-    
+       
     binaryWithoutTop10 = list(set(allBinaryConfig) - set(top10Config))
     
     # full configuration of feature list for feature extraction
                         #  mode,feat,regEx,stack_binning,bigram,sentiment,configuration
-    featureConfigs.append(("bow",True,True,True,False,False,bowConfig,"features_bowConfig"))
+#     featureConfigs.append(("bow",True,True,True,False,False,bowConfig,"features_bowConfig"))
 #     featureConfigs.append(("bow",True,True,True,True,False,bowBigramConfig,"features_bowBigramConfig"))
 #     featureConfigs.append(("all",True,True,False,True,True,allBinaryConfig,"features_allBinaryConfig"))
 #     featureConfigs.append(("all",True,True,True,True,True,allConfig,"features_allConfig"))
@@ -158,7 +154,7 @@ def applyMachineLearning(class1, class2, randomSeed, arff_path, trainingSetFilen
 #     featureConfigs.append(("all",True,True,False,True,True,allWithoutStacks,"features_allWithoutStacks"))
 #     featureConfigs.append(("all",True,False,True,True,True,allWithoutBinary,"features_allWithoutBinary"))
 #     featureConfigs.append(("specific",True,True,True,True,True,allWithoutBoW,"features_allWithoutBoW"))
-#     featureConfigs.append(("specific",True,True,True,False,True,allWithoutBowBigram,"features_allWithoutBowBigram"))
+    featureConfigs.append(("specific",True,True,True,False,True,allWithoutBowBigram,"features_allWithoutBowBigram"))
 #     featureConfigs.append(("all",True,True,True,False,True,allWithoutBigrams,"features_allWithoutBigrams"))
 
 #     featureConfigs.append(("all",True,False,False,True,False,numbersConfig, "features_numbersConfig"))
