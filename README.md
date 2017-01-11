@@ -28,7 +28,7 @@ preprint: http://www.romanklinger.de/publications/ling2016.pdf
 
 # BibTeX citation
 
-@inproceedings{Ling2016,
+@inproceedings{Ling2016,,<br/>
 &nbsp;&nbsp;author = {Ling, Jennifer and Klinger, Roman},<br/>
 &nbsp;&nbsp;editor = {Sack, Harald and Rizzo, Giuseppe and Steinmetz,<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nadine and Mladeni{\'{c}}, Dunja and Auer, S{\"o}ren <br/>
@@ -44,5 +44,4 @@ preprint: http://www.romanklinger.de/publications/ling2016.pdf
 &nbsp;&nbsp;isbn = {978-3-319-47602-5}, <br/>
 &nbsp;&nbsp;doi = {10.1007/978-3-319-47602-5_39}, <br/>
 &nbsp;&nbsp;url = {http://dx.doi.org/10.1007/978-3-319-47602-5_39}<br/>
-
 }
