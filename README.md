@@ -20,7 +20,9 @@ classification/performance.py evaluates the learning process and returns the res
 
 
 Jennifer Ling and Roman Klinger. An empirical, quantitative analysis of the differences between sarcasm and irony. In Harald Sack, Giuseppe Rizzo, Nadine Steinmetz, Dunja Mladenić, Sören Auer, and Christoph Lange, editors, The Semantic Web: ESWC 2016 Satellite Events, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Revised Selected Papers, pages 203--216. Springer International Publishing, 2016. Best Paper. 
+
 final article: http://link.springer.com/chapter/10.1007%2F978-3-319-47602-5_39
+
 preprint: http://www.romanklinger.de/publications/ling2016.pdf
 
 bibTeX citation:
