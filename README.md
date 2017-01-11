@@ -1,4 +1,4 @@
-# irony_and_sarcasm_in_twitter
+# Irony and Sarcasm in Twitter
 
 Twitter crawler can be used to get tweets with a specific hashtag (such as #irony).
 Twitter4J is used to connect with Twitter API.
@@ -18,6 +18,7 @@ classification/features.py contains the implementation of the features and the f
 In feature_config.py you can add specific regular expressions for emoticons, acronyms, etc.
 classification/performance.py evaluates the learning process and returns the results of the classification.
 
+# Publication:
 
 Jennifer Ling and Roman Klinger. An empirical, quantitative analysis of the differences between sarcasm and irony. In Harald Sack, Giuseppe Rizzo, Nadine Steinmetz, Dunja Mladenić, Sören Auer, and Christoph Lange, editors, The Semantic Web: ESWC 2016 Satellite Events, Heraklion, Crete, Greece, May 29 -- June 2, 2016, Revised Selected Papers, pages 203--216. Springer International Publishing, 2016. Best Paper. 
 
@@ -25,21 +26,22 @@ final article: http://link.springer.com/chapter/10.1007%2F978-3-319-47602-5_39
 
 preprint: http://www.romanklinger.de/publications/ling2016.pdf
 
-bibTeX citation:
-@inproceedings{Ling2016,
-  author = {Ling, Jennifer and Klinger, Roman},
-  editor = {Sack, Harald and Rizzo, Giuseppe and Steinmetz,
-                  Nadine and Mladeni{\'{c}}, Dunja and Auer, S{\"o}ren
-                  and Lange, Christoph},
-  title = {An Empirical, Quantitative Analysis of the
-                  Differences Between Sarcasm and Irony},
-  booktitle = {The Semantic Web: ESWC 2016 Satellite Events,
-                  Heraklion, Crete, Greece, May 29 -- June 2, 2016,
-                  Revised Selected Papers},
-  year = {2016},
-  publisher = {Springer International Publishing},
-  pages = {203--216},
-  isbn = {978-3-319-47602-5},
-  doi = {10.1007/978-3-319-47602-5_39},
-  url = {http://dx.doi.org/10.1007/978-3-319-47602-5_39}
+# BibTeX citation:
+
+@inproceedings{Ling2016, <br/>  
+&nbsp;&nbsp;author = {Ling, Jennifer and Klinger, Roman},<br/>
+&nbsp;&nbsp;editor = {Sack, Harald and Rizzo, Giuseppe and Steinmetz,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nadine and Mladeni{\'{c}}, Dunja and Auer, S{\"o}ren <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and Lange, Christoph}, <br/>
+&nbsp;&nbsp;title = {An Empirical, Quantitative Analysis of the <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Differences Between Sarcasm and Irony}, <br/>
+&nbsp;&nbsp;booktitle = {The Semantic Web: ESWC 2016 Satellite Events, <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heraklion, Crete, Greece, May 29 -- June 2, 2016, <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Revised Selected Papers}, <br/>
+&nbsp;year = {2016}, <br/>
+&nbsp;publisher = {Springer International Publishing}, <br/>
+&nbsp;pages = {203--216}, <br/>
+&nbsp;isbn = {978-3-319-47602-5}, <br/>
+&nbsp;doi = {10.1007/978-3-319-47602-5_39}, <br/>
+&nbsp;url = {http://dx.doi.org/10.1007/978-3-319-47602-5_39}<br/>
 }
