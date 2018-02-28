@@ -31,8 +31,14 @@ OR
 		> make test
 		> make cleanest
 
-5. Prepare configuration file (see instructions in *config.txt*).
-6. Start sensespotting
+5. Prepare hansards dataset: unzip all files and concatenate them
+	> cd sensespotting_2/corpus/hansards
+	> unzip train\*.\*.zip
+	> cat train1.fr train2.fr train3.fr > train.fr
+	> cat train1.en train2.en train3.en > train.en
+	
+6. Prepare configuration file (see instructions in *config.txt*).
+7. Start sensespotting
 	> python3 run_sensespotting.py -c <path/to/config/file> -v <verbosity> -u <use_existing>
 	- verbosity and use_existing are OPTIONAL and have a default value of 1
 	- IF verbosity = 1 => print log statements; else print only configuration and final performance
