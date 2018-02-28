@@ -3,21 +3,22 @@
 # Source: http://www.speech.sri.com/projects/srilm/download.html
 
 working_dir=$1
+srilm_path=$2
 
 mkdir -p $working_dir/tools/srilm
 cd $working_dir/tools/srilm
 
-if [ ! -f "$working_dir/installation_scripts/srilm-1.7.2.tar.gz" ]; then
+if [ ! -f "$srilm_path" ]; then
     echo "Download source file from http://www.speech.sri.com/projects/srilm/download.html and save it in the same folder as this script!"
     exit 1
 fi
 
-cp $working_dir/installation_scripts/srilm-1.7.2.tar.gz $working_dir/tools/srilm
+cp $srilm_path $working_dir/tools/srilm/srilm.tar.gz
 
 # unpack files
-tar xfvz $working_dir/tools/srilm/srilm-1.7.2.tar.gz
+tar xfvz $working_dir/tools/srilm/srilm.tar.gz
 
-rm -f $working_dir/tools/srilm/srilm-1.7.2.tar.gz
+rm -f $working_dir/tools/srilm/srilm.tar.gz
 
 echo "Now, follow INSTALL file (or follow Steps 1-6)"
 echo "Step 1: Go to srilm folder (command: cd $working_dir/tools/srilm)"
