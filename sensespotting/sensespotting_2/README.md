@@ -32,10 +32,10 @@ OR
 		> make cleanest
 
 5. Prepare hansards dataset: unzip all files and concatenate them
-	> cd sensespotting_2/corpus/hansards
-	> unzip train\*.\*.zip
-	> cat train1.fr train2.fr train3.fr > train.fr
-	> cat train1.en train2.en train3.en > train.en
+	> cd sensespotting_2/corpus/hansards  
+	> unzip train\*.\*.zip  
+	> cat train1.fr train2.fr train3.fr > train.fr  
+	> cat train1.en train2.en train3.en > train.en  
 	
 6. Prepare configuration file (see instructions in *config.txt*).
 7. Start sensespotting
