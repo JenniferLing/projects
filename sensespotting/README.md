@@ -1,10 +1,10 @@
-### SenseSpotting tool
+# SenseSpotting tool
 
-This git directory contains a Python implementation of SenseSpotting based on the initial approach of Carpuat et al. (2013). The code was created within the context of a master thesis.  
+This git directory contains a Python implementation of *SenseSpotting* based on the initial approach of Carpuat et al. (2013). The code was created within the context of a master thesis.  
 DeepSenseSpotting consists of two architecture to address the SenseSpotting task: one MLP-based and one with context embeddings.  
 SenseSpotting2 contains the re-implementation of the initial approach (including corpus preprocessing, feature extraction, cross validation and ablation study).  
 
-Master thesis abstract:  
+### Master thesis abstract:  
 Error analysis of state-of-the-art machine translation systems revealed that translation quality
 is highly reduced by the occurrence of unseen words. Especially when moving to a new
 domain, word senses change dramatically. However, even sense inventories often miss domain
@@ -23,5 +23,5 @@ be integrated into the translation process to improve the performance of machine
 systems.
 
 
-Initial approach:  
+### Initial approach:  
 Carpuat, Marine, et al. "Sensespotting: Never let your parallel data tie you to an old domain." Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). Vol. 1. 2013.
