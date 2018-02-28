@@ -8,7 +8,7 @@ SenseSpotting has the following folder structure.
 We define a working dir (e.g. /home/x/xx/sensespotting). 
 In this directory, the tool will create all folders. 
 For bigger files, an additional working directory can be defined to keep the main (small) content in one directory, 
-but all models and corpus files are saved in the big file directory.
+but save all models and corpus files in the big file directory.
 
 FIRST STEPS:
 1. Download srilm.tar.gz from http://www.speech.sri.com/projects/srilm/download.html and put the zipped file in the *installation_scripts* directory
