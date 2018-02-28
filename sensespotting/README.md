@@ -11,7 +11,7 @@ domain, word senses change dramatically. However, even sense inventories often m
 specific senses and are therefore not able to prevent these translation errors.  
 We study the SenseSpotting approach for solving this important problem. SenseSpotting identifies unseen
 senses using a logistic regression classifier. We use parallel corpora from two different domains
-and spot if a word shifts its sense from one domain to another. Our approach integrates multiple
+and *spot* if a word shifts its sense from one domain to another. Our approach integrates multiple
 features, which demonstrated good performances in the fields of word sense disambiguation,
 word sense induction and domain adaptation. Due to the combination of these features, we
 are able to capture the nature of a word that gained a new, unseen sense. In a first step,
