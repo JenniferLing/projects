@@ -40,4 +40,4 @@ OR
 	
 
 **NOTE:**
-Training of the PSD classifier can need a long time! 
+Training of the PSD classifier may need a long time! 
