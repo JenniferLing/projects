@@ -6,6 +6,7 @@
 #echo "Current directory: $current_dir"
 #
 ### Define paths:
+srilm_path=/mounts/Users/student/lingj/srilm-1.7.2.tar.gz
 ### path to the installation scripts
 script_path=/mounts/Users/student/lingj/sensespotting/installation_scripts
 #
@@ -20,8 +21,9 @@ mkdir -p $tool_path
 #
 if [ ! -d $tool_path/srilm ]; then
     echo "Install SRILM"
-    sh $script_path/install_srilm.sh $working_dir;
+    sh $script_path/install_srilm.sh $working_dir $srilm_path;
 fi
+exit 1
 #
 if [ ! -d $tool_path/tree_tagger ]; then
     sh $script_path/install_tree_tagger.sh $working_dir;
