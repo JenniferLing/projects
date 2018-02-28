@@ -1,0 +1,282 @@
+################################################
+### CONFIGURATION FILE FOR SENSESPOTTING ###
+################################################
+
+### INSTRUCTIONS:
+### In REQUIRED parts, please set all paths!
+### In OPTIONAL parts, you can either give the file 
+### (which was created from the given corpus) 
+### or just comment out the corresponding line 
+### and the file will be created during processing.
+### If you do not provide the OPTIONAL files, 
+### please set the paths to the required tools ([TOOLS] part)!
+
+### Used Tools:
+### SRILM (http://www.speech.sri.com/projects/srilm/download.html)
+### TreeTagger (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
+### FastAlign (https://github.com/clab/fast_align)
+### Moses (http://www.statmt.org/moses/?n=Development.GetStarted)
+### (installation scripts are in the folder 'installation') 
+
+### Last updated: 25.10.2017
+
+#################################################################
+
+### REQUIRED
+[GENERAL]
+
+old_domain_name = hansards
+new_domain_name = EMEA
+source_language = fr
+target_language = en
+
+working_dir = /mounts/Users/student/lingj/sensespotting
+
+### OPTIONAL
+### If not given, then all stuff is saved in working_dir
+big_files_dir = /mounts/work/lingj/sensespotting
+
+### OPTIONAL
+### Define directory where all (bash/python) scripts are
+### Default: Directory of the main (python) script
+script_path = /mounts/Users/student/lingj/sensespotting/scripts
+
+#################################################################
+
+
+### REQUIRED
+[CORPUS]
+
+old_domain_dir = /mounts/Users/student/lingj/sensespotting/orig_data/hansards
+new_domain_dir = /mounts/Users/student/lingj/sensespotting/orig_data/EMEA
+### for each domain, there needs to be a <corpus_file>.<source_language> 
+### and <corpus_file>.<target_language> file in the corpus directory
+corpus_file = train
+
+#################################################################
+
+
+### REQUIRED (only new domain is required; old is optional)
+[PSD_FILE]
+
+# old_domain_file = /mounts/Users/student/lingj/sensespotting/aux_files/hansards.psd
+new_domain_file = /mounts/Users/student/lingj/sensespotting/orig_data/EMEA.psd
+
+#################################################################
+
+
+### OPTIONAL
+[PREPROCESSING]
+### Lowercasing is always the first step of preprocessing! 
+
+### default: 0
+remove_stopwords = 0
+
+### default: 1
+lemmatize = 0
+
+### default: 0
+#remove_low_frequency_words = 0
+#low_freq_border = 100
+
+### Instead of just creating the file which fulfills all preprocessing requirements,
+### all combinations of preprocessing options are performed.
+### This results in 8 files. 
+### Nevertheless, all further steps are performed on the setting of preprocessing from above.
+### It is only in testing phase, since creating all files together saves processing time
+### and files can be re-used in further tests and do not need to be created then.  
+all_combinations = 0
+
+#################################################################
+
+
+### OPTIONAL 
+[FEATURE_EXTRACTION]
+
+### If not given, then feature will not be used for training 
+### 1 -> used, 0/not given -> not used for training)
+type_rel_freq = 0
+type_ngram_prob = 0
+type_context = 0
+type_topic = 0
+
+token_ngram_prob = 1
+
+### if token_context is 1, then all context features are extracted 
+### and three files are created: token_context, token_context_count and token_context_percentage.
+### For training only these features (token_context_count, token_context_percentage) are used, 
+### which are defined as 1 explicitly.
+token_context = 1
+
+token_context_count = 1
+token_context_percentage = 1
+
+### if token_psd is 1, then all psd features are extracted
+### For training only these features are used, which are defined as 1 explicitly.
+### (e.g. token_psd_global = 0 and token_psd = 1 => global features are extracted, but not used for training)
+### Joint extraction saves time, since we have to derive psd features only once and then test it on each model (global, local)
+token_psd = 1
+
+token_psd_global = 1
+token_psd_global_binned = 1
+token_psd_local = 1
+token_psd_local_binned = 1
+token_psd_ratio = 1
+
+### if not given, then default name will be used (name should not contain dots, except for the suffix!)
+### token context and token psd fname is needed since different features of this group are processed together 
+### and saved that the features can be loaded independently
+
+type_rel_freq_fname = type_rel_freq.feat
+type_ngram_prob_fname = type_ngram_prob.feat
+type_context_fname = type_context.feat
+type_topic_fname = type_topic.feat
+
+token_ngram_prob_fname = token_ngram_prob.feat
+token_context_fname = token_context.feat
+token_context_count_fname = token_context_count.feat
+token_context_percentage_fname = token_context_percentage.feat
+token_psd_fname = token_psd.feat
+token_psd_global_fname = token_psd_global.feat
+token_psd_global_binned_fname = token_psd_global_binned.feat
+token_psd_local_fname = token_psd_local.feat
+token_psd_local_binned_fname = token_psd_local_binned.feat
+token_psd_ratio_fname = token_psd_ratio.feat
+
+#################################################################
+### OPTIONAL
+[TRAINING]
+
+seen_path = /mounts/Users/student/lingj/sensespotting/aux_files/seen.hansard.gz
+
+### possible values: new_sense (default), most_frequent_seen
+use_as_gold_label = new_sense
+
+### If not defined, then all tokens are considered without consideration of their frequency in the corpus
+### Otherwise after reaching the maximal frequency, the features of this word type are not further considered
+### Helpful due to the skewed nature of token frequency in the corpus -> Prune data
+maximal_type_frequency = 100
+
+### 1 (True) -> perform num_fold cross validation (results in average scores)
+### 0 (False) -> train on given features and test on unseen data
+cross_validation = 1
+repetition = 10
+
+hyperparameter_optimization = 0
+### Possible values: test, training; default: 'training'
+### not considered if hyperparameter_optimization = 1
+use_dev_for = test
+use_hold_out = 1
+
+
+### default num_folds = 16
+num_folds = 16
+
+### default = 10
+max_buckets = 10
+
+### default = 1 (True)
+add_bias = 1
+
+#################################################################
+
+
+### OPTIONAL
+[LANGUAGE_MODEL]
+
+### srilm ngrams (needed as trigrams)
+
+# old_domain_ngrams = /mounts/work/lingj/sensespotting/models/language_models/before_final/hansards.fr.3gram.ngrams
+
+# new_domain_ngrams = /mounts/work/lingj/sensespotting/models/language_models/before_final/EMEA.fr.3gram.ngrams
+
+### srilm language models (as unigrams and trigrams)
+
+# old_domain_arpa_ug = /mounts/work/lingj/sensespotting/models/language_models/before_final/hansards.fr.1gram.arpa
+
+# new_domain_arpa_ug = /mounts/work/lingj/sensespotting/models/language_models/before_final/EMEA.fr.1gram.arpa
+
+# old_domain_arpa_ng = /mounts/work/lingj/sensespotting/models/language_models/before_final/hansards.fr.3gram.arpa
+
+# new_domain_arpa_ng = /mounts/work/lingj/sensespotting/models/language_models/before_final/EMEA.fr.3gram.arpa
+
+#################################################################
+
+
+### OPTIONAL
+[NGRAM_PERPLEXITY]
+
+### srilm perplexity models (as unigrams and trigrams)
+
+# old_domain_ppl_ug = /mounts/work/lingj/sensespotting/models/ngram_perplexity/EMEA/before_final/hansards.fr.1gram.ppl
+
+# new_domain_ppl_ug = /mounts/work/lingj/sensespotting/models/ngram_perplexity/EMEA/before_final/EMEA.fr.1gram.ppl
+
+# old_domain_ppl_ng = /mounts/work/lingj/sensespotting/models/ngram_perplexity/EMEA/before_final/hansards.fr.3gram.ppl
+
+# new_domain_ppl_ng = /mounts/work/lingj/sensespotting/models/ngram_perplexity/EMEA/before_final/EMEA.fr.3gram.ppl
+
+#################################################################
+
+
+### OPTIONAL
+[TOPIC_MODEL]
+
+### LDA model (trained with gensim)
+
+# old_domain_file = /mounts/work/lingj/sensespotting/models/topic_models/before_final/hansards.lda
+
+# new_domain_file = /mounts/work/lingj/sensespotting/models/topic_models/before_final/EMEA.lda
+
+### type2id mapping for LDA model
+
+# old_domain_dict = /mounts/work/lingj/sensespotting/models/topic_models/before_final/hansards.type2id
+
+# new_domain_dict = /mounts/work/lingj/sensespotting/models/topic_models/before_final/EMEA.type2id
+
+#################################################################
+
+
+### OPTIONAL
+[TAGGED_CORPUS]
+
+# old_domain_file = /big/l/lingj/corpus/hansards/before_final/train.lowercased.word_per_line.tagged.fr
+
+#################################################################
+
+
+### OPTIONAL
+[ALIGNMENT]
+
+# alignment_file = /big/l/lingj/models/psd_classifier/build_phrase_table/alignment/symm.align
+
+#################################################################
+
+
+### OPTIONAL
+[PHRASE_TABLE]
+
+# phrase_table_file = /big/l/lingj/models/psd_classifier/build_phrase_table/model/phrase-table.gz
+
+#################################################################
+
+
+[TOOLS]
+
+### Not needed if all paths in [LANGUAGE_MODEL] and [NGRAM_PERPLEXITY] are provided;
+### otherwise REQUIRED to build language and perplexity models
+srilm_dir = /mounts/Users/student/lingj/sensespotting/tools/srilm
+
+### Not needed if [TAGGED_CORPUS] is provided; otherwise REQUIRED to build tagged corpus
+tree_tagger_dir = /mounts/Users/student/lingj/sensespotting/tools/tree_tagger
+
+### Not needed if [ALIGNMENT] is provided; otherwise REQUIRED to build alignment
+aligner_dir = /mounts/Users/student/lingj/sensespotting/tools/fast_align
+
+### Not needed if [PHRASE_TABLE] is provided; otherwise REQUIRED to build phrase table
+moses_dir = /mounts/Users/student/lingj/sensespotting/tools/mosesdecoder
+
+### REQUIRED to train PSD classifier
+vowpal_wabbit = /mounts/Users/student/lingj/sensespotting/tools/vowpal_wabbit
+
+#################################################################
