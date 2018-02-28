@@ -39,7 +39,7 @@ OR
 	
 6. Prepare configuration file (see instructions in *config.txt*).
 7. Start sensespotting
-	> python3 run_sensespotting.py -c <path/to/config/file> -v <verbosity> -u <use_existing>
+	> python3 run_sensespotting.py -c <path/to/config/file> -v \<verbosity\> -u <use_existing>
 	- verbosity and use_existing are OPTIONAL and have a default value of 1
 	- IF verbosity = 1 => print log statements; else print only configuration and final performance
 	- IF use_existing = 1 => if models are found in the default folders or are provided in the config file, no new models are created, but the existing ones are used
